@@ -11,6 +11,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          CLIENT_ID_PP: ${{ secrets.CLIENT_ID_PP }}
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -34,5 +37,3 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          CLIENT_ID_PP: ${{secrets.CLIENT_ID_PP}}
-          GOOGLE_MAPS_API_KEY: ${{secrets.GOOGLE_MAPS_API_KEY}}
