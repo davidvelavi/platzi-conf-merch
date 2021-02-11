@@ -10,7 +10,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: CLIENT_ID_PP=$CLIENT_ID_PP GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY npm run build
         env:
           CLIENT_ID_PP: ${{ secrets.CLIENT_ID_PP }}
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
